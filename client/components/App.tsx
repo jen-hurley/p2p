@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      <h1>React and Knex Boilerplate</h1>
+      <h1>Welcome to Pixel 2 Pattern!</h1>
     </div>
   )
 }
