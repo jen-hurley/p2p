@@ -28,6 +28,7 @@ export default function Pixel() {
 
   return (
     <div
+      className="pixel"
       onClick={handleClick}
       style={{
         height: '10px',

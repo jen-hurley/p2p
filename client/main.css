@@ -6,8 +6,11 @@ body {
 .gridLayout {
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
   max-width: 500px;
   margin: auto;
+  border: solid 2px #383838;
 }
 
+.pixel {
+  border: solid 0.1px #383838
+}
