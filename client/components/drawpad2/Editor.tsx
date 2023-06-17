@@ -33,44 +33,43 @@ export default function Editor() {
       <div id="editor">
         <h1> Pixel Editor </h1>
         {hideDrawingPanel && <h2> Enter Panel Dimensions</h2>}
-        {hideDrawingPanel && (
-          <>
-            <div id="options">
-              <div className="option">
-                <input
-                  className="panelInput"
-                  type="number"
-                  defaultValue={panelWidth}
-                  onChange={(e) => {
-                    setPanelWidth(Number(e.target.value))
-                  }}
-                ></input>
-                <span>Width</span>
-              </div>
-            </div>
-            <div id="options">
-              <div className="option">
-                <input
-                  className="panelInput"
-                  type="number"
-                  defaultValue={panelHeight}
-                  onChange={(e) => {
-                    setPanelHeight(Number(e.target.value))
-                  }}
-                ></input>
-                <span>Height</span>
-              </div>
-            </div>
-          </>
-        )}
+
+        <div id="options">
+          <div className="option">
+            <input
+              className="panelInput"
+              type="number"
+              defaultValue={panelWidth}
+              onChange={(e) => {
+                setPanelWidth(Number(e.target.value))
+              }}
+            ></input>
+            <span>Width</span>
+          </div>
+        </div>
+        <div id="options">
+          <div className="option">
+            <input
+              className="panelInput"
+              type="number"
+              defaultValue={panelHeight}
+              onChange={(e) => {
+                setPanelHeight(Number(e.target.value))
+              }}
+            ></input>
+            <span>Height</span>
+          </div>
+        </div>
+        <br />
+
         <button className="button" onClick={initializeDrawingPanel}>
           {buttonText}
         </button>
-
+        <br />
         {hideOptions && (
           <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
         )}
-
+        <br />
         {hideOptions && (
           <DrawingPanel
             width={panelWidth}

@@ -37,6 +37,7 @@ export default function Pixel(props: Props) {
     <div
       className="pixel"
       onClick={applyColor}
+      onDragEnter={applyColor}
       onMouseEnter={changeColorOnHover}
       onMouseLeave={resetColor}
       style={{ backgroundColor: pixelColor }}
