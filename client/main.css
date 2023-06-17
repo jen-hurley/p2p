@@ -5,7 +5,7 @@ body {
 
 .gridLayout {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   max-width: 500px;
   margin: auto;
   border: solid 2px #383838;
