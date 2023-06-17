@@ -3,20 +3,17 @@ import { useState, useEffect } from 'react'
 import Pixel from './Pixel'
 // import ColourPicker from './ColourPicker'
 
-interface PixelIndex {
-  id: number
-}
-
 export default function DrawPad() {
   return (
     <>
       <h1> draw pad</h1>
-
-      {Array.from({ length: 50 }, () => (
-        // eslint-disable-next-line react/jsx-key
-        <Pixel />
-      ))}
-      {/* <ColourPicker /> */}
+      <div className="gridLayout">
+        {Array.from({ length: 50 }, () => (
+          // eslint-disable-next-line react/jsx-key
+          <Pixel />
+        ))}
+        {/* <ColourPicker /> */}
+      </div>
     </>
   )
 }

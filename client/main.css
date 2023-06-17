@@ -2,3 +2,8 @@ body {
   background-color: #faf8f1;
   color: #0a1520;
 }
+
+.gridLayout {
+  display: flex;
+  flex-wrap: wrap;
+}
