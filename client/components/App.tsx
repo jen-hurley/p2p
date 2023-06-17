@@ -1,10 +1,11 @@
-import DrawPad from './DrawPad'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <div>
       <h1>Welcome to Pixel 2 Pattern!</h1>
-      <DrawPad></DrawPad>
+
+      <Outlet />
     </div>
   )
 }
