@@ -8,7 +8,7 @@ export default function DrawPad() {
     <>
       <h1> draw pad</h1>
       <div className="gridLayout">
-        {Array.from({ length: 500 }, () => (
+        {Array.from({ length: 2500 }, () => (
           // eslint-disable-next-line react/jsx-key
           <Pixel />
         ))}
@@ -19,8 +19,6 @@ export default function DrawPad() {
 }
 
 /// change < Pixel /> to be <Grid /> with pixels mapped inside?
-
-// {Array.from({length: {grid-size} }, () => (Pixel />))}
 
 // in state, array of colours set colour and colour of pixel in array of pixel
 
