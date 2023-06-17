@@ -3,18 +3,25 @@ import { useState, useEffect } from 'react'
 import Pixel from './Pixel'
 // import ColourPicker from './ColourPicker'
 
+interface PixelIndex {
+  id: number
+}
+
 export default function DrawPad() {
   return (
     <>
       <h1> draw pad</h1>
 
-      <Pixel />
+      {Array.from({ length: 50 }, () => (
+        // eslint-disable-next-line react/jsx-key
+        <Pixel />
+      ))}
       {/* <ColourPicker /> */}
     </>
   )
 }
 
-/// change < Pixel /> to be <Grid /> with pixels mapped inside
+/// change < Pixel /> to be <Grid /> with pixels mapped inside?
 
 // {Array.from({length: {grid-size} }, () => (Pixel />))}
 

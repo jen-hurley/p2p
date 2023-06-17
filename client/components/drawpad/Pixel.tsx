@@ -8,30 +8,28 @@ import React, { useState } from 'react'
 export default function Pixel() {
   const [colour, setColour] = useState('#FFFFFF')
 
-  // function handleClick(event: React.MouseEventHandler<HTMLDivElement>) {
-  //   setColour(getRandomColor)
+  function handleClick(event: React.MouseEvent<HTMLDivElement>) {
+    setColour('#000000')
+  }
+
+  // function handleMouseEnter(event: React.MouseEventHandler<HTMLDivElement>) {
+
+  //   //green
+  //   setColour('#00FF00')
   // }
 
-  function handleMouseEnter(event: React.MouseEventHandler<HTMLDivElement>) {
-    setColour('green')
-  }
+  // function handleDoubleClick() {
+  //   setColour('white')
+  // }
 
-  function handleDoubleClick() {
-    setColour('white')
-  }
-
-  function handleDragEnter() {
-    setColour('yellow')
-  }
+  // function handleDragEnter() {
+  //   setColour('yellow')
+  // }
 
   return (
     <div
-      onDragEnter={handleDragEnter}
-      // onDoubleClick={handleDoubleClick}
-      // onMouseEnter={handleMouseEnter}
-      // onClick={handleClick}
+      onClick={handleClick}
       style={{
-        fontFamily: 'Times New Roman',
         height: '50px',
         width: '50px',
         backgroundColor: colour,

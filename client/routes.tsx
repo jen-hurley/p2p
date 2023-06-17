@@ -5,9 +5,9 @@ import {
 } from 'react-router-dom'
 
 import App from './components/App'
-import Home from './components/Home'
-import About from './components/About'
-import HowItWorks from './components/HowItWorks'
+import Home from './components/pages/Home'
+import About from './components/pages/About'
+import HowItWorks from './components/pages/HowItWorks'
 import DrawPad from './components/drawpad/DrawPad'
 
 export const routes = createRoutesFromElements(
