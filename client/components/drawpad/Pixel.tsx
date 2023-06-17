@@ -30,8 +30,8 @@ export default function Pixel() {
     <div
       onClick={handleClick}
       style={{
-        height: '50px',
-        width: '50px',
+        height: '10px',
+        width: '10px',
         backgroundColor: colour,
       }}
     ></div>

@@ -8,7 +8,7 @@ export default function DrawPad() {
     <>
       <h1> draw pad</h1>
       <div className="gridLayout">
-        {Array.from({ length: 50 }, () => (
+        {Array.from({ length: 500 }, () => (
           // eslint-disable-next-line react/jsx-key
           <Pixel />
         ))}
