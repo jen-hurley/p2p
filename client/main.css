@@ -113,13 +113,15 @@ code {
 .pixel {
   width: 1.5rem;
   height: 1.5rem;
-
-  &:hover {
+  
+  border: 0.2px solid #383838
+  /* &:hover {
     cursor: pointer;
-  }
+  } */
 }
 
 .row {
   display: flex;
   width: fit-content;
+  /* border: 0.2px solid #383838 */
 }
