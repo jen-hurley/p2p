@@ -26,6 +26,7 @@ export default function Editor() {
   function changeColor(color: { hex: SetStateAction<string> }) {
     //paramater is from colorpicker
     setColor(color.hex)
+    console.log(color.hex + ' hex from editor')
   }
 
   return (

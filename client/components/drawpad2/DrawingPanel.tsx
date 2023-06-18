@@ -15,6 +15,10 @@ export default function DrawingPanel(props: Props) {
   for (let i = 0; i < height; i++) {
     rows.push(<Row key={i} width={width} selectedColor={selectedColor} />)
   }
+
+  console.log(rows + 'rows')
+
+  console.log(selectedColor + ' colour')
   return (
     <div id="drawingPanel">
       <div id="pixels">{rows}</div>
