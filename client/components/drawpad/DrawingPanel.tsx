@@ -13,6 +13,7 @@ export default function DrawingPanel(props: Props) {
   const rows = []
 
   //getting the number rows and putting Row component in them
+  // console.log(rows + ' rows')
 
   //height = number of rows
   //instead each row pass in width = pixels per row
