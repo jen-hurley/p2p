@@ -14,7 +14,7 @@ export default function Editor() {
   const [selectedColor, setColor] = useState('#f44336')
 
   function initializeDrawingPanel() {
-    // switch between true and false
+    // switching between true and false
     setHideOptions(!hideOptions)
     setHideDrawingPanel(!hideDrawingPanel)
 

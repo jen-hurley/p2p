@@ -9,7 +9,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import HowItWorks from './components/pages/HowItWorks'
 // import DrawPad from './components/drawpadOLD/DrawPad'
-import DrawPad from './components/drawpad2/DrawPad'
+import DrawPad from './components/drawpad/DrawPad'
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
     <Route index element={<Home />} />

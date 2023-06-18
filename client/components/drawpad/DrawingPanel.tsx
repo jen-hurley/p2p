@@ -12,6 +12,11 @@ export default function DrawingPanel(props: Props) {
 
   const rows = []
 
+  //getting the number rows and putting Row component in them
+
+  //height = number of rows
+  //instead each row pass in width = pixels per row
+  //Pixels are inside Row components
   for (let i = 0; i < height; i++) {
     rows.push(<Row key={i} width={width} selectedColor={selectedColor} />)
   }
