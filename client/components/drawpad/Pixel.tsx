@@ -17,11 +17,14 @@ export default function Pixel(props: Props) {
   const [oldColor, setOldColor] = useState(pixelColor)
   const [canChangeColor, setCanChangeColor] = useState(true)
 
+  // const pixelData = document.getElementsByClassName('pixel')
+  // const computedPixelColour = window.getComputedStyle(pixelData).backgroundColor
+  // console.log(computedPixelColour)
+
   function applyColor() {
     setPixelColor(selectedColor)
     // when pixel is hovered over you can't change it until hovered over it again
     setCanChangeColor(false)
-    console.log(selectedColor + ' pixel colour')
   }
 
   function changeColorOnHover() {
@@ -43,6 +46,7 @@ export default function Pixel(props: Props) {
 
   return (
     <div
+      id="pixel"
       className="pixel"
       onClick={applyColor}
       onDragEnter={applyColor}

@@ -1,4 +1,3 @@
-import React from 'react'
 import Row from './Row'
 
 interface Props {
@@ -22,9 +21,9 @@ export default function DrawingPanel(props: Props) {
     rows.push(<Row key={i} width={width} selectedColor={selectedColor} />)
   }
 
-  console.log(rows + 'rows')
+  // console.log(rows.length + 'rows length')
 
-  console.log(selectedColor + ' colour')
+  // console.log(selectedColor + ' colour')
   return (
     <div id="drawingPanel">
       <div id="pixels">{rows}</div>
