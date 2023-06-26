@@ -13,12 +13,13 @@
 .row{
   font-size: 0px;
 }
-/* #drawingPanel {
+
+#drawingPanel {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+/*
 #pixels {
   margin-bottom: 2rem;
   border: 0.1px solid #383838

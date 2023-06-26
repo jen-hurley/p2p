@@ -467,17 +467,17 @@ export default function DrawPadButtons() {
             <CirclePicker color={color} onChangeComplete={changeColor} />
           </div>
           <br />
-
-          {rowData.map((colors, row) => (
-            <Row
-              key={row}
-              colors={colors}
-              onClick={(col) => {
-                update(row, col)
-              }}
-            />
-          ))}
-
+          <div id="drawingPanel">
+            {rowData.map((colors, row) => (
+              <Row
+                key={row}
+                colors={colors}
+                onClick={(col) => {
+                  update(row, col)
+                }}
+              />
+            ))}
+          </div>
           <br />
           <button onClick={save}>Save</button>
         </>
