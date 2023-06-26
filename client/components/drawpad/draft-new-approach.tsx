@@ -15,6 +15,12 @@ interface Row {
   onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
+interface Panel {
+  width: number
+  height: number
+  selectedColor: string
+}
+
 function Pixel(props: Pixel) {
   const { color, onClick } = props
   return (
@@ -52,12 +58,48 @@ export default function DrawPadButtons() {
     ['#fff', '#fff', '#fff'],
   ])
 
+  const [panelWidth, setPanelWidth] = useState(16)
+  const [panelHeight, setPanelHeight] = useState(16)
+
   const [color, setColor] = useState('#f44336')
+
+  function handleColumnSizeChange(n: number) {
+    const newGrid = [] as string[][]
+    for (let i = 0; i < n; i++) {
+      if (rowData[i]) {
+        newGrid.push(rowData[i])
+      } else {
+        const nCol = rowData[0].length
+        // new array of nothing but lenght of a row
+        const row = Array.from({ length: nCol }).fill('#fff') as string[]
+
+        newGrid.push(row)
+      }
+    }
+
+    setRowData(newGrid)
+  }
+
+  // mouse move mouse down
+  // capture div of pattern for download
+
+  function handleRowSizeChange(n: number) {
+    const newGrid = rowData.map((row) => {
+      if (n < row.length) {
+        return row.slice(n - 1)
+      } else {
+        return row.concat(
+          Array.from({ length: n - row.length }).fill('#fff') as string[]
+        )
+      }
+    })
+
+    setRowData(newGrid)
+  }
 
   function changeColor(color: { hex: SetStateAction<string> }) {
     //paramater is from colorpicker
     setColor(color.hex)
-    console.log(color.hex + ' hex from editor')
   }
 
   function update(rowN: any, colN: any) {
@@ -92,9 +134,49 @@ export default function DrawPadButtons() {
         />
       ))}
 
+      {/* <button onClick={addRow}>Add row</button> */}
+
       <button onClick={save}>Save</button>
 
       <CirclePicker color={color} onChangeComplete={changeColor} />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+
+          handleRowSizeChange(panelWidth)
+        }}
+      >
+        <input
+          className="panelInput"
+          type="number"
+          min="1"
+          max="100"
+          value={panelWidth}
+          onChange={(e) => {
+            setPanelWidth(Number(e.target.value))
+          }}
+        ></input>
+        <button> width</button>
+      </form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+
+          handleColumnSizeChange(panelHeight)
+        }}
+      >
+        <input
+          className="panelInput"
+          type="number"
+          min="1"
+          max="100"
+          value={panelHeight}
+          onChange={(e) => {
+            setPanelHeight(Number(e.target.value))
+          }}
+        ></input>
+        <button> height</button>
+      </form>
     </div>
   )
 }
