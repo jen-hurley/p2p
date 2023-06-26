@@ -30,8 +30,6 @@ function Pixel(props: Pixel) {
 function Row(props: Row) {
   const { onClick, colors } = props
 
-  console.log(colors + ' colours')
-
   return (
     <div className="row">
       {colors.map((color: string, column: any) => (
@@ -40,7 +38,6 @@ function Row(props: Row) {
           color={color}
           onClick={() => {
             onClick(column)
-            console.log(column + ' column')
           }}
         />
       ))}
@@ -101,32 +98,3 @@ export default function DrawPadButtons() {
     </div>
   )
 }
-
-// interface Buttons {
-//   width: number
-//   height: number
-//   selectedColor: string
-// }
-// const [panelWidth, setPanelWidth] = useState(16)
-//   const [panelHeight, setPanelHeight] = useState(16)
-
-//   function initializePanelSize(props: Buttons) {
-//     //height is num of rows
-//     // width is num of columns
-
-//     // []
-//     // [[#fff]] = one pixel
-//     // pixel .push [#fff] into rowData
-
-//     // [[#fff, #fff]] = two pixels, one row
-
-//     // [[#fff], [#fff]] = two pixels, two rows
-
-//     const rows = []
-
-//     const {width, height, selectedColor} = props
-//     for (let i =0; i < height; i++) {
-//       rowData.push()
-//     }
-
-//   }
