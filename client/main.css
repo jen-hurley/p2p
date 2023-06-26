@@ -9,6 +9,10 @@
  
 }
 
+
+.row{
+  font-size: 0px;
+}
 /* #drawingPanel {
   display: flex;
   flex-direction: column;
