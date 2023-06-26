@@ -1,4 +1,3 @@
-// import './styles.css'
 import { SetStateAction, useState } from 'react'
 import { CirclePicker } from 'react-color'
 
@@ -73,7 +72,6 @@ export default function DrawPadButtons() {
         newGrid.push(rowData[i])
       } else {
         const nCol = rowData[0].length
-        // new array of nothing but lenght of a row
         const row = Array.from({ length: nCol }).fill('#fff') as string[]
 
         newGrid.push(row)
@@ -117,6 +115,10 @@ export default function DrawPadButtons() {
         })
       )
     )
+  }
+
+  function clear() {
+    setRowData(initialGrid)
   }
 
   function save() {
@@ -190,6 +192,7 @@ export default function DrawPadButtons() {
           </div>
           <br />
           <button onClick={save}>Save</button>
+          <button onClick={clear}>Clear</button>
         </>
       )}
     </div>
