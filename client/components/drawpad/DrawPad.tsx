@@ -61,7 +61,7 @@ export default function DrawPadButtons() {
     setHideDrawingPanel(!hideDrawingPanel)
 
     buttonText === 'start drawing'
-      ? setButtonText('reset')
+      ? setButtonText('change dimensions')
       : setButtonText('start drawing')
   }
 
