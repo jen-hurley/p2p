@@ -15,21 +15,14 @@ interface Row {
   onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-interface Panel {
-  width: number
-  height: number
-  selectedColor: string
-}
-
 function Pixel(props: Pixel) {
   const { color, onClick } = props
   return (
     <button
+      className="pixel"
       onClick={onClick}
       style={{ backgroundColor: color, width: '20px', height: '20px' }}
-    >
-      .
-    </button>
+    ></button>
   )
 }
 
@@ -60,8 +53,20 @@ export default function DrawPadButtons() {
 
   const [panelWidth, setPanelWidth] = useState(16)
   const [panelHeight, setPanelHeight] = useState(16)
+  const [hideOptions, setHideOptions] = useState(false)
+  const [hideDrawingPanel, setHideDrawingPanel] = useState(true)
+  const [buttonText, setButtonText] = useState('start drawing')
 
   const [color, setColor] = useState('#f44336')
+
+  function initializeDrawingPanel() {
+    setHideOptions(!hideOptions)
+    setHideDrawingPanel(!hideDrawingPanel)
+
+    buttonText === 'start drawing'
+      ? setButtonText('reset')
+      : setButtonText('start drawing')
+  }
 
   function handleColumnSizeChange(n: number) {
     const newGrid = [] as string[][]
@@ -123,22 +128,8 @@ export default function DrawPadButtons() {
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      {rowData.map((colors, row) => (
-        <Row
-          key={row}
-          colors={colors}
-          onClick={(col) => {
-            update(row, col)
-          }}
-        />
-      ))}
-
-      {/* <button onClick={addRow}>Add row</button> */}
-
-      <button onClick={save}>Save</button>
-
-      <CirclePicker color={color} onChangeComplete={changeColor} />
+      <h1>Draw your pattern</h1>
+      {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -177,6 +168,33 @@ export default function DrawPadButtons() {
         ></input>
         <button> height</button>
       </form>
+      <br />
+      <div>
+        <button onClick={initializeDrawingPanel}>{buttonText}</button>
+      </div>
+      <br />
+
+      {hideOptions && (
+        <>
+          <div>
+            <CirclePicker color={color} onChangeComplete={changeColor} />
+          </div>
+          <br />
+          <div>
+            {rowData.map((colors, row) => (
+              <Row
+                key={row}
+                colors={colors}
+                onClick={(col) => {
+                  update(row, col)
+                }}
+              />
+            ))}
+          </div>
+          <br />
+          <button onClick={save}>Save</button>
+        </>
+      )}
     </div>
   )
 }

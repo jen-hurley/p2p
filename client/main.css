@@ -1,21 +1,15 @@
-/* body {
-  background-color: #faf8f1;
-  color: #0a1520;
-}
 
-.gridLayout {
-  display: flex;
-  flex-flow: wrap;
-  max-width: 500px;
-  margin: auto;
-  border: solid 2px #383838;
-}
+
 
 .pixel {
-  border: solid 0.1px #383838
-} */
+  
+ 
+  border: 0.5px solid #383838; 
+  
+ 
+}
 
-#drawingPanel {
+/* #drawingPanel {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +104,7 @@ code {
     monospace;
 }
 
-.pixel {
+/* .pixel {
   width: 1.5rem;
   height: 1.5rem;
   
@@ -118,10 +112,10 @@ code {
   /* &:hover {
     cursor: pointer;
   } */
-}
 
-.row {
+
+/* .row {
   display: flex;
   width: fit-content;
   /* border: 0.2px solid #383838 */
-}
+
