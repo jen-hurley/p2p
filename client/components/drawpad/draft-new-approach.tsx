@@ -50,9 +50,9 @@ function Row(props: Row) {
 
 export default function DrawPadButtons() {
   const [rowData, setRowData] = useState([
-    ['#bada55', '#fff', '#000'],
-    ['#bada55', '#fff', '#000'],
-    ['#bada55', '#fff', '#000'],
+    ['#fff', '#fff', '#fff'],
+    ['#fff', '#fff', '#fff'],
+    ['#fff', '#fff', '#fff'],
   ])
 
   const [color, setColor] = useState('#f44336')
