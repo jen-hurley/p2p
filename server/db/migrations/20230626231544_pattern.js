@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('pattern', function (table) {
     table.increments('id').primary()
-    table.json('pattern_data')
+    table.string('pattern_data')
   })
 }
 
