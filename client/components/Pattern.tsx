@@ -19,7 +19,16 @@ export default function Pattern() {
     return <div> Loading patterns...</div>
   }
   console.log(patternData)
-  return <>{patternData.map((pattern) => pattern.pattern_data)}</>
+
+  const patternArr = patternData.map((pattern) => pattern.pattern_data)
+
+  const singlePattern = patternArr[1]
+
+  console.log(singlePattern)
+
+  const filteredPattern = singlePattern.replace('/data/i', '')
+
+  return <>{filteredPattern}</>
 }
 
 // function onlyUnique(value, index, array) {
