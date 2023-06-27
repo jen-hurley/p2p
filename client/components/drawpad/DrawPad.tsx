@@ -4,6 +4,9 @@ import { CirclePicker } from 'react-color'
 // no local state from row or pixels
 // don't have to reach into dom
 import { initialGrid } from './initialGrid'
+import Pattern from '../Pattern'
+
+import { addPatternData, getAllPatterns } from '../../apis/pattern-data'
 
 interface Pixel {
   color: string
@@ -123,78 +126,95 @@ export default function DrawPadButtons() {
 
   function save() {
     console.log(rowData)
+
+    addPatternData(rowData)
+    // const get
+    // for (let i = 0; i = )
+    // console.log(rowData[0])
   }
 
+  function read() {
+    return getAllPatterns()
+  }
+
+  // row 1: 1sc(colour a), 1sc(colour b),
+
   return (
-    <div className="App">
-      <h1>Draw your pattern</h1>
-      {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
+    <>
+      <div className="App">
+        <h1>Draw your pattern</h1>
+        {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
 
-          handleRowSizeChange(panelWidth)
-        }}
-      >
-        <input
-          className="panelInput"
-          type="number"
-          min="1"
-          max="100"
-          value={panelWidth}
-          onChange={(e) => {
-            setPanelWidth(Number(e.target.value))
+            handleRowSizeChange(panelWidth)
           }}
-        ></input>
-        <button> width</button>
-      </form>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
+        >
+          <input
+            className="panelInput"
+            type="number"
+            min="1"
+            max="100"
+            value={panelWidth}
+            onChange={(e) => {
+              setPanelWidth(Number(e.target.value))
+            }}
+          ></input>
+          <button> width</button>
+        </form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
 
-          handleColumnSizeChange(panelHeight)
-        }}
-      >
-        <input
-          className="panelInput"
-          type="number"
-          min="1"
-          max="100"
-          value={panelHeight}
-          onChange={(e) => {
-            setPanelHeight(Number(e.target.value))
+            handleColumnSizeChange(panelHeight)
           }}
-        ></input>
-        <button> height</button>
-      </form>
-      <br />
-      <div>
-        <button onClick={initializeDrawingPanel}>{buttonText}</button>
+        >
+          <input
+            className="panelInput"
+            type="number"
+            min="1"
+            max="100"
+            value={panelHeight}
+            onChange={(e) => {
+              setPanelHeight(Number(e.target.value))
+            }}
+          ></input>
+          <button> height</button>
+        </form>
+        <br />
+        <div>
+          <button onClick={initializeDrawingPanel}>{buttonText}</button>
+        </div>
+        <br />
+
+        {hideOptions && (
+          <>
+            <div>
+              <CirclePicker color={color} onChangeComplete={changeColor} />
+            </div>
+            <br />
+            <div id="drawingPanel">
+              {rowData.map((colors, row) => (
+                <Row
+                  key={row}
+                  colors={colors}
+                  onClick={(col) => {
+                    update(row, col)
+                  }}
+                />
+              ))}
+            </div>
+            <br />
+            <button onClick={save}>Save</button>
+            <button onClick={clear}>Clear</button>
+          </>
+        )}
       </div>
-      <br />
-
-      {hideOptions && (
-        <>
-          <div>
-            <CirclePicker color={color} onChangeComplete={changeColor} />
-          </div>
-          <br />
-          <div id="drawingPanel">
-            {rowData.map((colors, row) => (
-              <Row
-                key={row}
-                colors={colors}
-                onClick={(col) => {
-                  update(row, col)
-                }}
-              />
-            ))}
-          </div>
-          <br />
-          <button onClick={save}>Save</button>
-          <button onClick={clear}>Clear</button>
-        </>
-      )}
-    </div>
+      <div>
+        <button onClick={read}> Read pattern</button>
+        <Pattern />
+      </div>
+    </>
   )
 }

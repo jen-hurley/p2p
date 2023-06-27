@@ -7,7 +7,7 @@ export async function addPattern(
   db = connection
 ): Promise<Pattern> {
   const [newPattern] = await db('pattern')
-    .insert({ json_data: JSON.stringify(data) })
+    .insert({ pattern_data: JSON.stringify(data) })
     .returning('*')
 
   return newPattern
