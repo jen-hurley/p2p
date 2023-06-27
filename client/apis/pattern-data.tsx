@@ -8,6 +8,6 @@ export async function addPatternData(data: string[][]): Promise<void> {
 
 export async function getAllPatterns(): Promise<Pattern[]> {
   const response = await request.get('/api/v1/pattern')
-
+  console.log(response.body)
   return response.body as Pattern[]
 }

@@ -18,14 +18,8 @@ export default function Pattern() {
   if (isLoading) {
     return <div> Loading patterns...</div>
   }
-
-  return (
-    <ul>
-      {patternData.map((pattern) => (
-        <li key={pattern.pattern}>{pattern.pattern}</li>
-      ))}
-    </ul>
-  )
+  console.log(patternData)
+  return <>{patternData.map((pattern) => pattern.pattern_data)}</>
 }
 
 // function onlyUnique(value, index, array) {

@@ -14,7 +14,7 @@ export async function addPattern(
 }
 
 export async function getAllPatterns(db = connection): Promise<Pattern[]> {
-  const allPatterns = await db('pattern').select()
+  const allPatterns = await db('pattern').select('*')
 
   return allPatterns
 }
