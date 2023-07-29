@@ -131,6 +131,49 @@ export default function DrawPadButtons() {
     // const get
     // for (let i = 0; i = )
     // console.log(rowData[0])
+    //[a][a][b][a][c]
+    // when odd row -> reverse reading across row
+
+    const keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+    const colorsUsed = [] as string[]
+    const patternData = [] as string[][]
+
+    for (let row = 0; row < panelHeight; row++) {
+      const patternRow = []
+
+      for (let col = 0; col < panelWidth; ) {
+        const cellColor = rowData[row][col]
+
+        let colorIndex = colorsUsed.indexOf(cellColor)
+
+        if (colorIndex === -1) {
+          colorsUsed.push(cellColor)
+          colorIndex = colorsUsed.indexOf(cellColor)
+        }
+
+        const colorKey = keys[colorIndex]
+
+        let countSameColor = 1
+        let sameColor = true
+
+        while (sameColor) {
+          const nextCellColor = rowData[row][col + countSameColor]
+          if (nextCellColor === cellColor) {
+            countSameColor++
+          } else {
+            sameColor = false
+          }
+        }
+
+        col += countSameColor
+
+        const patternKey = colorKey + `${countSameColor}`
+
+        patternRow.push(patternKey)
+      }
+      patternData.push(patternRow)
+    }
+    console.log(patternData)
   }
 
   function read() {
@@ -218,3 +261,10 @@ export default function DrawPadButtons() {
     </>
   )
 }
+
+// key:
+
+// colour a: red []
+// colour b: green []
+
+// find out how many different colours are used?
