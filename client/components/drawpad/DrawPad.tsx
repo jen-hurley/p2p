@@ -132,7 +132,7 @@ export default function DrawPadButtons() {
     // for (let i = 0; i = )
     // console.log(rowData[0])
     //[a][a][b][a][c]
-    // when odd row -> reverse reading across row
+    // todo: when odd row -> reverse reading across row
 
     const keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
     const colorsUsed = [] as string[]
